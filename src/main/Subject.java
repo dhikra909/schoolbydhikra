@@ -15,6 +15,8 @@ public class Subject {
 			return listMark;
 		}
 
+		    
+		    //writ srt and get for list
 		public void setListMark(List<Mark> listMark) {
 			this.listMark = listMark;
 		}
