@@ -14,7 +14,7 @@ public class School {
 	//this is dhikra school
 	//String schoolName;
 	//static boolean isExit = true;
-	//static boolean isExitSubject = true;
+	
 	
 	
 	
