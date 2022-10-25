@@ -9,10 +9,6 @@ public class School {
 			return(m * factorial (m-1) );
 	}
 
-	
-	
-	
-	
 	String schoolName;
 
 	static boolean isExit = true;
