@@ -15,7 +15,7 @@ public class School {
 	//String schoolName;
 	//static boolean isExit = true;
 	//static boolean isExitSubject = true;
-	//static boolean userpass= true;
+	
 	
 	
 	
