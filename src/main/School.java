@@ -13,12 +13,6 @@ public class School {
 	
 	
 	
-	
-	
-	
-	
-	
-	
 	String schoolName;
 
 	static boolean isExit = true;
