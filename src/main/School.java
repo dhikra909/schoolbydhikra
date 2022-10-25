@@ -9,6 +9,8 @@ public class School {
 			return(m * factorial (m-1) );
 	}
 
+	
+	// This is Dhikra trying to learn github
 	String schoolName;
 
 	static boolean isExit = true;
