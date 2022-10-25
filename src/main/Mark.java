@@ -6,7 +6,6 @@ public class Mark {
 	 int mark1;
 	 int mark2;
 	 int subMark;
-    //writ st and get for properity
 	public int getSubMark() {
 		return subMark;
 	}
