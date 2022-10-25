@@ -13,7 +13,6 @@ public class School {
 	// This is Dhikra trying to learn github
 	//this is dhikra school
 	//String schoolName;
-	//static boolean isExit = true;
 	
 	
 	
