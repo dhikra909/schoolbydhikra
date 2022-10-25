@@ -3,6 +3,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student {
+	
+	
+	//writ set and get for properity
 
 	     String studentName;
 	     String studentEmail; 
