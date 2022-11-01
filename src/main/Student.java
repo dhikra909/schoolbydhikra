@@ -12,6 +12,9 @@ public class Student {
 
 	     List<Subject> listSubject=  new ArrayList<>();
 		
+	     public void work ();{
+	          System.out.println("this student work");
+	     }
 	    public void setListSubject(List<Subject> listSubject) {
 	    	this.listSubject=listSubject;
 	    }

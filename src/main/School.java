@@ -150,7 +150,7 @@ public class School {
 					stk.push(stuName);
 					studentObj.setStudentName(stuName);
 					schObj.studentList.add(studentObj);
-
+					studentObj.work();
 					System.out.println("Enter Email:");
 					String emailInput = sc.next();
 					stk.push(emailInput);
