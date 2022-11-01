@@ -1,19 +1,28 @@
 package main;
+import java.math.BigInteger;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.io.ObjectInputStream;
+import java.io.Serializable;
+import java.io.*;
 import java.util.*;
 
 public class School {
-	static int factorial (int m) {
+	static int factorial(int m) {
 		if (m == 0)
 			return 1;
-		else 
-			return(m * factorial (m-1) );
+		else
+			return (m * factorial(m - 1));
 	}
 
 	String schoolName;
 
 	static boolean isExit = true;
 	static boolean isExitSubject = true;
-	static boolean userpass= true;
+	static boolean userpass = true;
+
+	private static Scanner sc;
 
 	List<Student> studentList = new ArrayList<>();
 	Stack<String> stk = new Stack<>();
@@ -46,7 +55,19 @@ public class School {
 		System.out.println("6. Currency");
 		System.out.println("7. Factorial");
 		System.out.println("8. Exit");
+//		System.out.println("menueOption");
+//		  int option =0;
+//	        try {
+//	        	System.out.println("Please Select only one Option: ");	
+//				option = sc.nextInt();
+//	        }
+//	         catch (Exception e)
+//	        {
+//	        	 System.out.println("Please Select numbers only: "); 
+//	        }
+
 	}
+
 	static void submenueFunction() {
 		System.out.println("Select one of the options:");
 		System.out.println("1. Factorial");
@@ -55,7 +76,22 @@ public class School {
 
 	}
 
+	public static BigInteger calculationofFacctorial(int n) {
+		BigInteger Facctorial = new BigInteger("1");
+		for (int i = 2; i < n; i++) {
+			Facctorial = Facctorial.multiply(BigInteger.valueOf(i));
+
+		}
+		return Facctorial;
+
+	}
+
 	public static void main(String[] args) {
+//		FileOutputStream fileOut= null;
+//		ObjectOutputStream out = null;
+//		ObjectInputStream in = null;
+	
+	
 		Scanner sc = new Scanner(System.in);
 		Stack<String> stk = new Stack<>();
 		Set<String> hashEmailSet = new HashSet<String>();
@@ -69,19 +105,29 @@ public class School {
 		double amount;
 		boolean isExit=true;
 		
-		
+		boolean isExitMenu=true;
 	    String  username, password;
 	    while (userpass) {
 	    	System.out.println("Enter username: ");
 	        username =  sc.nextLine();
 	        System.out.println("Enter password: ");//alm909
 	        password = sc.nextLine();
-	        if (username.equals("dhikra") && password.equals("alm909")) {
-	        	 System.out.println("username successful ");
+	        
+	        try {
+	        	if(!username.equals("dhikra")) {
+	        	   throw new Exception ("username is found");
+	        }
+	        	else if (! password.equals("alm909")) {
+	        		throw new Exception (" password is found");
+	        			
+	        	}
+	        	else {
+	        	 System.out.println("username and password successful ");
+	        	} 
 	        
 		do {
 			menueFunction();
-
+			
 			int studentMenue = sc.nextInt();
 
 			switch (studentMenue) {
@@ -150,6 +196,18 @@ public class School {
 					if (exitInput2 == 0) {
 						isExit = false;
 					}
+					
+					try {
+						FileOutputStream fout = new FileOutputStream ("output.txt");
+						ObjectOutputStream out = new ObjectOutputStream (fout);
+						out.writeObject(stk);
+						out.flush();
+						out.close();
+					
+					}
+					catch (IOException e) {
+						e.printStackTrace();
+				}
 				}
 				break;
 			case 2:
@@ -189,13 +247,39 @@ public class School {
 			case 5:
 
 				System.out.println("***** The history is ******");
+				
+//				try {
+//					ObjectOutputStream inl = new ObjectOutputStream (new FileOutputStream ("output.txt"));
+//					School c = (School) inl.readObject();
+//					System.out.println(c.getSchoolName() + " " + c.getSchoolRegistrationNo());
+//					inl.close();
+//				}
+//				catch (Exception e) {
+//					System.out.println(e);
+//				}
+//				try {
+//						fileOut = new FileOutputStream ("C:\\Users\\user022\\eclipse-workspace\\main\\output.txt");
+//						out = new ObjectOutputStream (fileOut);
+//						out.writeObject (historyl);
+				
 				// printing history
 				while (stk.empty() == false) {
 					System.out.println(stk.pop());
-					// {@code true} if and only if this stack contains
-					// no items; {@code false} otherwise.
 				}
+				
+					try {
+						ObjectInputStream in = new ObjectInputStream (new FileInputStream("output.txt"));
+						Stack stk2 = (Stack)in.readObject();
+						System.out.println( stk2);
+					
+						in.close();
+					}
+					 catch (Exception e) {
+						 System.out.println(e);
+				}
+				
 				break;
+				
 			case 6:
 				Map<String, Double> currencyMap = new HashMap<>();
 				Map<String, Map<String, Double>> comparisionMap = new HashMap<>();
@@ -263,13 +347,23 @@ public class School {
 				int studentSubMenue = sc.nextInt();
 				switch(studentSubMenue) {
 				case 1:
-					int i,fact =1;
 					System.out.println("Enter tne number of factorial:");
-					System.out.println("\n");
 					int factorialNum =sc.nextInt();
+					BigInteger Facctorial = calculationofFacctorial(factorialNum);
 					
-					fact =  factorial(factorialNum) ;
-					System.out.println("factorial of : \t"+ factorialNum +"\t is :\t"+fact );
+					System.out.println("factorial of : \t"+ factorialNum +"\t is :\t"+Facctorial );
+					
+					
+					
+					
+					
+//					int i,fact =1;
+//					System.out.println("Enter tne number of factorial:");
+//					System.out.println("\n");
+//					int factorialNum =sc.nextInt();
+//					
+//					fact =  factorial(factorialNum) ;
+//					System.out.println("factorial of : \t"+ factorialNum +"\t is :\t"+fact );
 					
 					
 //					int fact =1;
@@ -335,15 +429,22 @@ public class School {
 				System.exit(0);
 				break;
 			}
+
 		
-		} while (isExit);
-	
-		
+		} while (isExitMenu);
+	        
+	 	   
+	        }
+	    
+	    catch(Exception e) {
+	    	System.out.println("Exception: "+ e.getMessage());
 	    }
-	        System.out.println("login failed please try again ");
 	    }
-             userpass = false;
+
+        userpass = false;
+	        
+	    }
+	 }
 		
            
-           }
-}
+           
