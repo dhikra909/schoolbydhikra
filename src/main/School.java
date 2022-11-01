@@ -267,16 +267,16 @@ public class School {
 					System.out.println(stk.pop());
 				}
 				
-					try {
-						ObjectInputStream in = new ObjectInputStream (new FileInputStream("output.txt"));
-						Stack stk2 = (Stack)in.readObject();
-						System.out.println( stk2);
-					
-						in.close();
-					}
-					 catch (Exception e) {
-						 System.out.println(e);
+				try {
+					ObjectInputStream in = new ObjectInputStream (new FileInputStream("output.txt"));
+					Stack stk2 = (Stack)in.readObject();
+					System.out.println( stk2);
+				
+					in.close();
 				}
+				 catch (Exception e) {
+					 System.out.println(e);
+			}
 				
 				break;
 				
