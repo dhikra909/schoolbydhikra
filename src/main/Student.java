@@ -12,11 +12,14 @@ public class Student implements iStudent{
 	public String firstName(String fname) {
 	       return fname;
 }
+	@Override
+	public int age (int age) {
+	     return age;
+	}
 	//writ set and get for properity
 
 	     String studentName;
 	     String studentEmail; 
-
 	     List<Subject> listSubject=  new ArrayList<>();
 		
 	    public void setListSubject(List<Subject> listSubject) {
@@ -43,4 +46,5 @@ public class Student implements iStudent{
 		    public void setStudentEmail(String studentName) {
 		      this.studentName = studentName;
 		    }
+		    
 }

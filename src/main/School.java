@@ -180,6 +180,8 @@ public class School {
 						studentObj.listSubject.add(subjectObj);
 						System.out.println("Enter student first name: ");
 						String firstName = sc.next();
+						System.out.println("Enter student age: ");
+						int studentage = sc.nextInt();
 
 						System.out.println("press 1 to add new subject , press 0 to exit");
 						int exitInput = sc.nextInt();
