@@ -9,12 +9,12 @@ import java.io.*;
 import java.util.*;
 
 public class School {
-	static int factorial(int m) {
-		if (m == 0)
-			return 1;
-		else
-			return (m * factorial(m - 1));
-	}
+//	static int factorial(int m) {
+//		if (m == 0)
+//			return 1;
+//		else
+//			return (m * factorial(m - 1));
+//	}
 
 	String schoolName;
 
@@ -76,15 +76,15 @@ public class School {
 
 	}
 
-	public static BigInteger calculationofFacctorial(int n) {
-		BigInteger Facctorial = new BigInteger("1");
-		for (int i = 2; i < n; i++) {
-			Facctorial = Facctorial.multiply(BigInteger.valueOf(i));
-
-		}
-		return Facctorial;
-
-	}
+//	public static BigInteger calculationofFacctorial(int n) {
+//		BigInteger Facctorial = new BigInteger("1");
+//		for (int i = 2; i < n; i++) {
+//			Facctorial = Facctorial.multiply(BigInteger.valueOf(i));
+//
+//		}
+//		return Facctorial;
+//
+//	}
 
 	public static void main(String[] args) {
 //		FileOutputStream fileOut= null;
@@ -99,8 +99,8 @@ public class School {
 		List<School> schoolList = new ArrayList<>();
 		List<String> listDuplicateEmail = new ArrayList<>();
 		boolean subMenuExit = true;
-		int currency;
-		double feesAmount = 0;
+//		int currency;
+//		double feesAmount = 0;
 		double amountCal = 0;
 		double amount;
 		boolean isExit=true;
@@ -287,78 +287,22 @@ public class School {
 				break;
 				
 			case 6:
-				Map<String, Double> currencyMap = new HashMap<>();
-				Map<String, Map<String, Double>> comparisionMap = new HashMap<>();
-
-				String currencyName = "KWD";
-
-				System.out.println("Enter student name who want to convert:");
+				currency mycurrency = new currency();
+				mycurrency.currency();
 				
-
-				String studentConversionName = sc.next();
-				stk.push(studentConversionName);
-
-				System.out.println("Choose Currency you want to convert:\n" + "1-KWD \n" + " 2-AED \n" + " 3-USD");
-
-				currency = sc.nextInt();
-				String s = Integer.toString(currency);
-				stk.push(s);
-				
-
-				System.out.println("Enter Fees Amount");
-
-				feesAmount = sc.nextDouble();
-				String s1 = Double.toString(feesAmount);
-				stk.push(s1);
-				
-
-				if (currency == 1) {
-
-					amountCal = feesAmount * 0.80;
-				
-
-				}
-
-				else if (currency == 2) {
-
-					amountCal = feesAmount * 9.54;
-//					Math.round(amountCal);
-					currencyName = "AED";
-
-				}
-
-				else if (currency == 3) {
-
-					amountCal = feesAmount * 2.60;
-//					Math.round(amountCal);
-					currencyName = "USD";
-
-
-				}
-
-
-				currencyMap.put(currencyName, amountCal);
-				comparisionMap.put(studentConversionName, currencyMap);
-//	    		System.out.println( " map 1 is " + currencyMap);
-
-				
-				System.out.println(comparisionMap);
-
 	
 				break;
 
 			case 7:
 			do {
+				
+				
 				submenueFunction() ;
 				int studentSubMenue = sc.nextInt();
 				switch(studentSubMenue) {
 				case 1:
-					System.out.println("Enter tne number of factorial:");
-					int factorialNum =sc.nextInt();
-					BigInteger Facctorial = calculationofFacctorial(factorialNum);
-					
-					System.out.println("factorial of : \t"+ factorialNum +"\t is :\t"+Facctorial );
-					
+					factorial myfactoriali = new factorial();
+					myfactoriali.factorial();
 					
 					
 					
@@ -383,23 +327,8 @@ public class School {
 //				   System.out.println("Factory of : \t"+ userInput +"\t is :\t"+fact );   
 				  break; 
 				 case 2:
-					int inputusers1 = 0;
-					int inputusers2 = 1;
-					System.out.println("Enter tne number of Fibonacci series:");
-					
-					
-				    int count = sc.nextInt();
-					int inputusers3;
-					System.out.print(inputusers1+" "+inputusers2 );
-					for (int v=2;v<count;++v)
-					{
-						inputusers3 =inputusers1 + inputusers2;
-					if (inputusers3 <= 100)
-					{
-						 System.out.print(""+ inputusers2+" ");
-						 inputusers1= inputusers2;
-						 inputusers2 = inputusers3;
-					}
+					 Fiboonacci myFiboonacci = new Fiboonacci();
+					 myFiboonacci.Fiboonacci();
 					
 //                   System.out.println("Enter tne number of Fibonacci series:");
 //					 int userInput1 = sc.nextInt();
@@ -414,7 +343,7 @@ public class School {
 //					 n2=n3;
 					 
 							 
-					 }
+					 
 					 
 					 
 					 break;

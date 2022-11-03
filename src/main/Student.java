@@ -13,8 +13,8 @@ public class Student implements iStudent{
 	       return fname;
 }
 	@Override
-	public int age (int age) {
-	     return age;
+	public int studentage (int sage) {
+	     return sage;
 	}
 	//writ set and get for properity
 
