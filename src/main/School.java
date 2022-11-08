@@ -157,10 +157,10 @@ public class School {
 					studentObj.setStudentEmail(emailInput);
 					schObj.studentList.add(studentObj);
 					listDuplicateEmail.add(emailInput);
-//			   	 Set<String> hashEmailSetU = new HashSet<String>();
+//			    	 Set<String> hashEmailSetU = new HashSet<String>();
 					hashEmailSetU.add(emailInput);
-
-
+//
+//
 					isExitSubject = Boolean.TRUE;
 					while (isExitSubject) {
 						Subject subjectObj = new Subject();// object for subject
@@ -168,7 +168,7 @@ public class School {
 						String subInput = sc.next();
 						subjectObj.setSubName(subInput);
 						stk.push(subInput);
-
+//
 						Mark markObj = new Mark(); // object for mark
 						System.out.println("Enter Marks: ");
 						Integer markInput = sc.nextInt();
@@ -233,6 +233,7 @@ public class School {
 				break;
 
 			case 4:
+				
 				System.out.println("___ ++++Report:++++___");// for each method for array list
 				for (School sch : schoolList) {
 					System.out.println(sch.schoolName);
