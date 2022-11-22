@@ -24,8 +24,7 @@ public class registeration {
 		School schObj = new School(); // object for school
 //	  	  List<School> schoolList=new ArrayList<>();
 			System.out.println("Enter School Name: ");
-
-
+			String schInput = sc.nextLine();
 			schObj.setSchoolName(schInput);// object chaining
 			schoolList.add(schObj);
 
