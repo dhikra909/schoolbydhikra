@@ -20,9 +20,4 @@ public class Reif implements  Serializable{
 		this.info = info;
 	}
 
-	
-	
-	
-	
-
 }
