@@ -1,0 +1,51 @@
+Intro
+
+How to use:
+
+
+Results:
+it is the first object in the main class ( Reif ) get it from the randem api :
+https://randomuser.me/api/
+
+
+fetch the random user Api by these steps :
+
+# send requests and retrieve their responses by using HttpClient
+	HttpClient client = HttpClient.newHttpClient();
+	HttpRequest request = HttpRequest.newBuilder()
+		.uri(URI.create("https://randomuser.me/api/")).build();
+	HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+	
+# call the response and display it on the screen.
+
+# Gson gs = new Gson();
+to serialize Java objects to JSON and vice versa.
+
+
+
+# used (Reif data = gs.fromJson(res, Reif.class);) method 
+to read simple Json string.
+
+
+# use for loop to print results and i use object chaining to reach them.
+
+
+//jokha
+# to get the size and pass it in for each loop
+int size = data.getResults().size(); 
+
+
+//jokha
+# Parameters:
+added some parameters to the API from the keyboard:
+1. scan the value.
+2. add this value to the API url :
+"https://randomuser.me/api/?results=" + num + "&password=" + pass
+						+ "&nat="+nat + "&gender=" + gender + "&seed="+seed + "&page=" + page 
+						+"&inc="+include + "&noinfo"
+
+3. print using for each
+4. filter the null/ not null values , so the not null ones won't be displayed using if condition
+ex. if(!(data.getResults().get(i).getName().getFirst()==null)) {
+				System.out.println("name : " + data.getResults().get(i).getName().getFirst());
+			}
