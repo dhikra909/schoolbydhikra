@@ -11,6 +11,7 @@ import com.google.gson.Gson;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -20,6 +21,8 @@ import java.io.Reader;
 import java.io.Serializable;
 
 public class Renfo implements Serializable {
+
+	private static String folderPath;
 
 	public static void main(String[] args) throws Exception, InterruptedException {
 
@@ -66,7 +69,7 @@ public class Renfo implements Serializable {
 		System.out.println("\n" + res);
 
 		
-//		Read readf = new BufferedReader(new FileReader("gsonf.txt"));
+
 		Gson gs = new Gson();
 		
 	
@@ -132,7 +135,8 @@ public class Renfo implements Serializable {
 			
 //		System.out.println(data.getInfo().toString());
 //		System.out.println(data.getInfo().getClass());
-			
+	
+		
 	}
 }
 }
