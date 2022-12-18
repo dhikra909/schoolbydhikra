@@ -1,5 +1,4 @@
 
-//package nbi;
 //
 //import java.io.File;
 //import java.io.FileInputStream;
@@ -60,6 +59,7 @@ package nbi;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -68,6 +68,9 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -76,20 +79,18 @@ import java.util.Set;
 
 public class file21 {
 
-	public static void main(String[] args) throws IOException, InterruptedException {
+	public static void main(String[] args) throws Throwable {
 		Set<String> uniqueStringHS = new HashSet();
 		boolean menue = true;
 		do {
 			Scanner sa = new Scanner(System.in);
-// while(menue) {
 			System.out.println("=====Welcome to my project=========");
 			System.out.println("=====choose one option=====");
 			System.out.println("========================");
 
 			System.out.println("1.writr/read file");
 			System.out.println("2.search file");
-
-			System.out.println("========================");
+			System.out.println("3.search PDF file");
 			System.out.println("========================");
 
 			{
@@ -97,10 +98,6 @@ public class file21 {
 				int option = Integer.parseInt(bb);
 				switch (option) {
 				case 1:
-
-// Scanner sa=new Scanner(System.in);
-// System.out.println("Enter name:");
-// String num =sa.next();
 
 					String ur1 = "https://randomuser.me/api/?results=";
 					HttpClient client = HttpClient.newHttpClient();
@@ -172,9 +169,67 @@ public class file21 {
 
 						}
 					}
+					break;
+				case 3:
+//					bdf.searchPdf();
+//					break;
+
+					Scanner sc = new Scanner(System.in);
+
+					System.out.println("**********************************");
+					// Reading the word to be found from the user
+					System.out.println("Enter the word you want to search in pdf ");
+					String input = sc.next();
+
+					// consuming the <enter> from input above
+					sc.nextLine();
+					boolean word2 = false;
+					int wordCount = 0;
+
+					// Reading the String of the file
+					Scanner sc11 = new Scanner(
+							new FileInputStream("C:\\Users\\user022\\eclipse-workspace\\APIav\\sample.pdf"));
+					while (sc11.hasNextLine()) {
+						String word1 = sc11.nextLine();
+//					     System.out.println(line);
+						if (word1.indexOf(input) != -1) {
+							word2 = true;
+							wordCount = wordCount + 1;
+						}
+					}
+
+					if (word2) {
+
+						System.out.println("PDF File contains the  word");
+						System.out.println("Number of word is: " + wordCount);
+						Path temp = Files.copy(Paths.get("C:\\Users\\user022\\Desktop\\sample.pdf"),
+								Paths.get("C:\\Users\\user022\\Desktop\\"
+										+ "newfile\\sample2.pdf"));
+						if (temp != null) {
+							System.out.println("File renamed and moved successfully");
+						}
+						System.out.println("__________________________________");
+
+					} else {
+
+						System.out.println("PDF File does not contain the word");
+						System.out.println("__________________________________");
+
+					}
+					System.out.println("if you want to search another word press 1 and 2 to exit ");
+					int s = sc.nextInt();
+					if (s == 1) {
+
+					} else if (s == 2) {
+
+						System.out.println("Good Bye");
+
+					}
+
 				}
 
 			}
+
 		} while (menue = true);
 
 	}
